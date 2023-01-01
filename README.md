@@ -2,6 +2,22 @@
 
 This will run a node JS Web app inside a container.
 
+## To run the example
+
+In the root of the project run:
+
+`$ docker build -t spaceschnoodle/simpleweb . `
+
+spaceschnoodle is my docker hub username.
+
+After building run:
+
+`$ docker run -p 8080:8080 spaceschnoodle/simpleweb`
+
+Now open your browser and go to localhost:8080
+
+![Example of Node web App](/assets/localhost.png "Simple node web app")
+
 # Docker concepts
 
 ## Why docker?
