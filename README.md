@@ -110,7 +110,7 @@ $ docker exec -it <container_id> sh
 ```
 
 sh is the command processor, now we have full terminal access.  
-We use control d or exit to exit.
+We use control d or type exit to exit.
 
 # Bonus
 
