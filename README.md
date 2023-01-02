@@ -44,6 +44,74 @@ See all containers that have been created in our machine:
 
 `$ docker ps --all`
 
+## Stop a container
+
+`$ docker stop <container_id>`
+
+## Kill a container
+
+`$ docker kill <container_id>`
+
+## Restarting stopped containers
+
+```
+$ docker run busybox echo hi there
+$ docker ps --all
+$ docker start -a <container_id>
+```
+
+## Removing stopped containers
+
+Removes all containers that are stopped:
+
+`$ docker system prune`
+
+After this command we have to redownload the images.
+
+## Retrieving output logs
+
+Just seeing the records, no action.
+
+```
+$ docker create busybox echo hi there
+$ docker start <container_id>
+$ docker logs <container_id>
+```
+
+## Multi-commmand containers
+
+First the commmand we want:
+
+`$ docker run redis`
+
+Open a second terminal window to do a redis-cli, we need another command that allows enter text into running container
+
+```
+$ docker exec -it <container_id> redis-cli
+> set myvalue 5
+> get myvalue
+> "5"
+```
+
+### The purpose of the `it` flag
+
+-t nice indentation
+-i communicate with redis-cli input
+
+`it` allows us to have things that we type into our terminal directed into that running process and allow us to get information back into our terminal.
+
+## Getting command prompt in a container
+
+Full terminal access:
+
+```
+$ docker exec -it <container_id> sh
+# cd /
+```
+
+sh is the command processor, now we have full terminal access.  
+We use control d or exit to exit.
+
 # Bonus
 
 Inside folder `redis-example` there's a DockerFile to create a redis image.
