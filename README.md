@@ -157,3 +157,35 @@ To build the docker file: open a console where your Dockerfile is and run:
 and after:
 
 `$ docker run <container_id>`
+
+## Tagging an image
+
+`$ docker build -t spaceshcnoodle/redis:latest .`
+
+This part `-t spaceshcnoodle/redis:latest`  
+This part is the name of the project `redis`  
+This part `latest` is the version you can omit it, by default adds latest as the version.  
+`spaceschnoodle` is your docker hub user.
+
+The last part is a dot `.` that specifies the directory of files, folders to use for the build.
+
+After that we run:
+
+`$ docker run spaceschnoodle/redis`
+
+## Container port forwarding
+
+We do this when we run the container.
+
+Docker run with port mapping:
+
+`$ docker run -p 8080:8080 <container_id>`
+
+This routes incoming request to 8080 port on localhost to 8080 inside the container.  
+There's no need for the ports to be the same.
+
+## Useful commands
+
+### COPY instruction
+
+### Specifying a working directory
