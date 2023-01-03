@@ -112,6 +112,48 @@ $ docker exec -it <container_id> sh
 sh is the command processor, now we have full terminal access.  
 We use control d or type exit to exit.
 
-# Bonus
+## Starting with a shell
 
-Inside folder `redis-example` there's a DockerFile to create a redis image.
+```
+$ docker run -it busybox sh
+#
+```
+
+## Container Isolation
+
+If you work in two containers that are the same what you do in one container happens just in that container and not in the others that are the same.
+
+## Creating docker images
+
+To do so we create a docker file that has lines of configuration. The file is a plain text file. The process user docker client (docker-cli), the docker client will provide the file to the docker server and the server does the heavy lifting.
+
+## Building a docker file
+
+Goal: create an image that runs redis-server
+
+the docker file name is `Dockerfile`
+
+contents:
+
+```docker
+FROM ALPINE
+
+RUN apk add --update redis
+
+CMD ["redis-server"]
+```
+
+You can see it in the folder `redis-example`.
+
+Some notes:  
+apk is a package manager from Alpine
+
+CMD are the instructions.
+
+To build the docker file: open a console where your Dockerfile is and run:
+
+`$ docker build .`
+
+and after:
+
+`$ docker run <container_id>`
